@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0D76C11A-DF3D-4266-9714-BB519EFC077C}</ProjectGuid>
+    <ProjectGuid>{E5526F0C-530B-4D2C-B738-EED1352A46D0}</ProjectGuid>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
-    <RootNamespace>theServer</RootNamespace>
+    <RootNamespace>theClient</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -137,9 +137,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\GeneralSourceFiles\doSocket.h" />
-    <ClInclude Include="..\GeneralSourceFiles\ioConsole.h" />
-    <ClInclude Include="doServerSocket.h" />
+    <ClInclude Include="doClientSocket.h" />
+    <ClInclude Include="doSocket.h" />
+    <ClInclude Include="ioConsole.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -148,7 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="doServerSocket.cpp" />
+    <ClCompile Include="doClientSocket.cpp" />
     <ClCompile Include="doSocket.cpp" />
     <ClCompile Include="ioConsole.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -157,7 +157,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="theServer.cpp" />
+    <ClCompile Include="theClient.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />

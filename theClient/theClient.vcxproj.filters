@@ -24,13 +24,13 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\GeneralSourceFiles\doSocket.h">
+    <ClInclude Include="doSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\GeneralSourceFiles\ioConsole.h">
+    <ClInclude Include="ioConsole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="doServerSocket.h">
+    <ClInclude Include="doClientSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -40,7 +40,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="theServer.cpp">
+    <ClCompile Include="theClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -49,13 +49,13 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="doServerSocket.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="doSocket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ioConsole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="doClientSocket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
