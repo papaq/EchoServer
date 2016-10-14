@@ -14,8 +14,8 @@ DoSocket::DoSocket(String ^ toSendMsg)
 void DoSocket::CreateSocket()
 {
 	IPAddress ^ address = IPAddress::Parse(SERVER);
-	_endPoint = gcnew IPEndPoint(address, PORT);
-	_socket = gcnew Socket(_endPoint->AddressFamily, SocketType::Stream, ProtocolType::Tcp);
+	this->_endPoint = gcnew IPEndPoint(address, PORT);
+	this->_socket = gcnew Socket(this->_endPoint->AddressFamily, SocketType::Stream, ProtocolType::Tcp);
 
 }
 
@@ -33,12 +33,12 @@ void DoSocket::ReceiveMessage(Socket ^ currentSocket)
 		receivedMessage = String::Concat(receivedMessage, Encoding::ASCII->GetString(bytesToReceive, 0, bytes));
 	} while (bytes > 0);
 
-	_ToReceiveMessage = receivedMessage;
+	this->_ToReceiveMessage = receivedMessage;
 }
 
 void DoSocket::SendMessage(Socket ^ currentSocket)
 {
-	array<Byte> ^ bytesToSend = Encoding::ASCII->GetBytes(_ToSendMessage);
+	array<Byte> ^ bytesToSend = Encoding::ASCII->GetBytes(this->_ToSendMessage);
 
 	currentSocket->Send(bytesToSend, bytesToSend->Length, static_cast<SocketFlags>(0));
 }

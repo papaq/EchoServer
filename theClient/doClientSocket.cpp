@@ -22,24 +22,24 @@ DoSocket::ResultStc ^ DoClientSocket::SendMessage()
 {
 	if (!_socket->Connected)
 	{
-		return gcnew ResultStc(false, "Send message: NO\nSocket in not connected");
+		return gcnew ResultStc(false, "Send message: FAIL\nSocket in not connected");
 	}
 
 	DoSocket::SendMessage(DoSocket::_socket);
 
-	return gcnew ResultStc(false, "Send message: OK!\n");
+	return gcnew ResultStc(true, "Send message: OK!\n");
 }
 
 DoSocket::ResultStc ^ DoClientSocket::ReceiveMessage()
 {
 	if (!_socket->Connected)
 	{
-		return gcnew ResultStc(false, "Receive message: NO\nSocket in not connected\n");
+		return gcnew ResultStc(false, "Receive message: FAIL\nSocket in not connected\n");
 	}
 
 	DoSocket::ReceiveMessage(_socket);
 
-	return gcnew ResultStc(false, "Receive message: OK!\n");
+	return gcnew ResultStc(true, "Receive message: OK!\n");
 }
 
 String ^ DoClientSocket::ExCommute()
@@ -50,7 +50,7 @@ String ^ DoClientSocket::ExCommute()
 	IOConsole::Write(resultHere->output);
 	if (!resultHere->correct)
 	{
-		return gcnew String("");
+		return("Gone wrong");
 	}
 
 	resultHere = DoClientSocket::SendMessage();
@@ -58,7 +58,7 @@ String ^ DoClientSocket::ExCommute()
 	IOConsole::Write(resultHere->output);
 	if (!resultHere->correct)
 	{
-		return gcnew String("");
+		return("Gone wrong");
 	}
 
 	resultHere = DoClientSocket::ReceiveMessage();
@@ -66,9 +66,9 @@ String ^ DoClientSocket::ExCommute()
 	IOConsole::Write(resultHere->output);
 	if (!resultHere->correct)
 	{
-		return gcnew String("");
+		return("Gone wrong");
 	}
 
-	return gcnew String(("Message received from server: {0}", DoSocket::_ToReceiveMessage));
+	return String::Concat("Message received from server: ", this->_ToReceiveMessage);
 }
 

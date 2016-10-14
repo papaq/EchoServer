@@ -22,13 +22,13 @@ void DoSocket::ReceiveMessage(Socket ^ currentSocket)
 
 	int bytes = 0;
 
-	do
-	{
+	//do
+	//{
 		bytes = currentSocket->Receive(bytesToReceive, bytesToReceive->Length, static_cast<SocketFlags>(0));
 		receivedMessage = String::Concat(receivedMessage, Encoding::ASCII->GetString(bytesToReceive, 0, bytes));
-	} while (bytes > 0);
+	//} while (bytes > 0);
 
-	_ToReceiveMessage = receivedMessage;
+	this->_ToReceiveMessage = receivedMessage;
 }
 
 void DoSocket::SendMessage(Socket ^ currentSocket)

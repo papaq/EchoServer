@@ -11,6 +11,8 @@ int main(array<System::String ^> ^args)
 		"Input Your message: "));
 	String ^ message = IOConsole::Read();
 	DoClientSocket ^ client = gcnew DoClientSocket(message);
-	client->ExCommute();
+	IOConsole::WriteLine(client->ExCommute());
+	IOConsole::Write("exiting...");
+	Console::ReadKey();
     return 0;
 }

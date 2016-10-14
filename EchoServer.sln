@@ -5,14 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "theServer", "theServer\theServer.vcxproj", "{0D76C11A-DF3D-4266-9714-BB519EFC077C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GeneralFiles", "GeneralFiles", "{93DB6F95-F0C7-4FC0-A6A1-7A9F1E69BFA7}"
-	ProjectSection(SolutionItems) = preProject
-		GeneralSourceFiles\doSocket.cpp = GeneralSourceFiles\doSocket.cpp
-		GeneralSourceFiles\doSocket.h = GeneralSourceFiles\doSocket.h
-		GeneralSourceFiles\ioConsole.cpp = GeneralSourceFiles\ioConsole.cpp
-		GeneralSourceFiles\ioConsole.h = GeneralSourceFiles\ioConsole.h
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "theClient", "theClient\theClient.vcxproj", "{E5526F0C-530B-4D2C-B738-EED1352A46D0}"
 EndProject
 Global

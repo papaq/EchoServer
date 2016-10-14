@@ -8,7 +8,7 @@ DoServerSocket::ResultStc ^ DoServerSocket::ListeningSocket()
 
 	try
 	{
-		_socket->Bind(_endPoint);
+		this->_socket->Bind(this->_endPoint);
 	}
 	catch (Exception ^)
 	{
@@ -16,19 +16,21 @@ DoServerSocket::ResultStc ^ DoServerSocket::ListeningSocket()
 			"Something went wrong\n"));
 	}
 
-	_socket->Listen(5);
+	this->_socket->Listen(5);
 	return gcnew ResultStc(true, String::Concat("Associate socket with endpoint:    OK!\n",
-		"Listen to socket:                  OK!\n"));
+		"Set to listen to socket:           OK!\n"));
 }
 
 void DoServerSocket::Acceptor()
 {
 	while (true)
 	{
+		IOConsole::WriteLine("Listening to socket...");
+
 		Socket ^ newSoc;
 		try
 		{
-			newSoc = _socket->Accept();
+			newSoc = this->_socket->Accept();
 		}
 		catch (Exception^)
 		{
@@ -41,8 +43,9 @@ void DoServerSocket::Acceptor()
 		if (resultHere->correct)
 		{
 			IOConsole::Write(String::Concat("Message accepted:                  OK!\n", 
-				"Message: \"{0}\"\n", _ToReceiveMessage));
+				"Message: \"", this->_ToReceiveMessage->ToString(), "\"\n"));
 			IOConsole::Write(resultHere->output);
+			IOConsole::WriteLine("Socket closed:                     OK!\n");
 		}
 		else
 		{
@@ -64,7 +67,7 @@ DoServerSocket::ResultStc ^ DoServerSocket::EchoRequest(Socket ^ currentSocket)
 	// Receive message from the socket
 	DoSocket::ReceiveMessage(currentSocket);
 
-	_ToSendMessage = _ToReceiveMessage;
+	this->_ToSendMessage = this->_ToReceiveMessage;
 
 	// Send the same message to the socket
 	DoSocket::SendMessage(currentSocket);
